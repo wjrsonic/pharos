@@ -60,7 +60,7 @@ find_package(Curses REQUIRED)
 find_package(Threads)
 
 set(Boost_USE_MULTITHREADED on)
-find_package(Boost 1.60.0 REQUIRED
+find_package(Boost 1.58.0 REQUIRED
   COMPONENTS system chrono timer iostreams)
 
 configure_file(xsb_types.hpp.in xsb_types.hpp)

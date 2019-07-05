@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <stdexcept>
 #include <fstream>
+#include <boost/filesystem/fstream.hpp>
 #include <boost/iostreams/filtering_streambuf.hpp>
 #include <boost/iostreams/filter/gzip.hpp>
 #include <boost/archive/binary_oarchive.hpp>
@@ -224,7 +225,8 @@ P2::Partitioner create_partitioner(const ProgOptVarMap& vm, P2::Engine* engine) 
       out.push(bio::gzip_compressor());
       out.push(file);
       bar::binary_oarchive oa(out);
-      oa << version_number();
+      std::string version = version_number();
+      oa << version;
       oa << partitioner;
       secs = clock::now() - start_ts;
       OINFO << "Writing serialized data took " << secs.count() << " seconds." << LEND;

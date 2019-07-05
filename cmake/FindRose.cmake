@@ -11,9 +11,9 @@ if (Z3_VERSION AND (Z3_VERSION VERSION_LESS 4.6))
 endif()
 
 set(Boost_USE_MULTITHREADED on)
-find_package(Boost 1.60.0 REQUIRED
+find_package(Boost 1.58.0 REQUIRED
   COMPONENTS system thread program_options iostreams filesystem regex wave)
-if (NOT Boost_FOUND OR (Boost_VERSION LESS 1.60))
+if (NOT Boost_FOUND OR (Boost_VERSION LESS 1.58))
   message(FATAL_ERROR "Could not find a usable version of boost")
 endif()
 
